@@ -1,0 +1,1171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1em;
+}
+
+:root {
+  --bs-light: #ffffff;
+  --bs-dark: #000000;
+  --bs-gold: #cbad00;
+  --bs-gray: #2a2a28;
+  --bs-dark-gray: #141414;
+
+}
+
+@font-face {
+  font-family: sephora;
+  src: url(/font/Sephora\ &\ Hayden.ttf);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+header {
+  background: linear-gradient(80deg, rgb(0, 0, 0), rgba(255, 255, 255, 0.059)), url(/image/hero.png);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 27px 86px;
+}
+
+.ham {
+  display: none;
+}
+.logo {
+  font-size: clamp(2.4em, 1.2vh, 1em);
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--bs-light);
+}
+
+strong {
+  color: var(--bs-gold);
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.3em;
+}
+
+.nav-list a {
+  font-size: clamp(1em, 1vh, 1em);
+  font-family: sans-serif;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: var(--bs-light);
+  transition: .2s;
+  letter-spacing: 1px;
+}
+
+.nav-list a:hover{
+  color: var(--bs-gold);
+  transition: .3s;
+  position: relative;
+}
+
+.nav-list a:active{
+  color: var(--bs-light);
+}
+
+.nav-list a:hover:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--bs-gold);
+  margin: 25px 0 0 0;
+}
+
+.nav-list .active {
+  font-size: clamp(1.2em, 1vh, 1em);
+  font-family: sans-serif;
+  text-transform: capitalize;
+  color: var(--bs-gold);
+  transition: .2s;
+  position: relative;
+}
+
+.active:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--bs-gold);
+  margin: 25px 0 0 0 ;
+}
+
+.nav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.btn {
+  padding: 12px 27px;
+  border: 2px solid var(--bs-gold);
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn:nth-child(2) {
+  background: var(--bs-gold);
+  transition: none; 
+  cursor: pointer;
+
+}
+
+.btn:nth-child(2) a:hover {
+  color: var(--bs-light);
+  cursor: pointer;
+}
+
+.btn:hover {
+  border: none;
+  transition-delay: 2s;
+  transition-timing-function: ease-in-out;
+}
+
+.btn:nth-child(3):hover,
+.btn:nth-child(4):hover {
+  background: var(--bs-gold);
+  transition-delay: .2s;
+}
+
+.btn a {
+  color: var(--bs-light);
+  font-family: sans-serif;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.btn:nth-child(3) a {
+  color: var(--bs-dark);
+  font-family: sans-serif;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.btn:nth-child(3) a:hover,
+.btn:nth-child(4) a:hover {
+  color: var(--bs-light);
+}
+
+.btn:nth-child(2) a,
+.btn:nth-child(4) a {
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--bs-light);
+}
+
+.btn a:hover {
+  color: var(--bs-gold);
+}
+
+.btn a:active {
+  color: var(--bs-light);
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3em;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border: 1px solid var(--bs-light);
+  border-radius: 50%;
+  padding: 2px;
+  transition: .1s;
+}
+
+.menu:hover {
+  border: 2px solid var(--bs-gold);
+}
+
+.menu span {
+  background: var(--bs-light);
+  width: 3px;
+  height: 3px;
+  border-radius: 50px;
+  transition: .1s;
+}
+
+.hamburger {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3em;
+  border: 2px solid var(--bs-gold);
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.hamburger span {
+  width: 15px;
+  height: 2px;
+  background: var(--bs-gold);
+}
+
+/* THE END STYLES OF NAV   */
+
+.contai {
+  font-size: 1.1em;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: var(--bs-gold);
+  font-family: sephora, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container > span {
+  font-size: 0.8em;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 2em 5em;
+}
+
+h1 {
+  font-size: clamp(4em, 1vh, 1em);
+  font-family: sephora ,Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  text-transform: capitalize;
+  width: 52%;
+  line-height: 1;
+  letter-spacing: 2;
+  margin: 0.6em 0 0 0;
+  color: var(--bs-light);
+}
+
+.hero-section p {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+  font-size: clamp(1.3em, 1vh, 1em);
+  text-transform: capitalize;
+  line-height: 1.5;
+  letter-spacing: 1;
+  width: 40%;
+  margin: 1em 0;
+  color: var(--bs-light);
+}
+
+/* END OF HERO SETION STYLE */
+
+h4 {
+  font-size: 1.3em;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin:  0 0 10px 0;
+}
+
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  border: 1px solid var(--bs-gold);
+  margin: 0 6em;
+  padding: 10px;
+  background: var(--bs-dark-gray);
+  border-radius: 10px;
+  transform: translateY(-22%);
+  flex-wrap: wrap;
+}
+
+.cont {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px;
+  color: var(--bs-light);
+  border-right: 1px solid var(--bs-gold);
+  transition: .2s;
+}
+
+.cont:hover {
+  transform: translateX(5%);
+  }
+
+.cont:nth-child(4) {
+  border: none;
+}
+
+.cont h4 {
+  font-size: 1.8em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--bs-gold);
+  text-align: center;
+}
+
+.cont p{
+  font-size: 1.2em;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-transform: capitalize;
+  letter-spacing: 1;
+}
+
+/* END STYLES FOR COUNT */
+
+/* START STYLES FOR INTRO */
+.parent-container {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  margin: 3em 4em;
+  min-height: 60vh;
+
+}
+
+span {
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--bs-gold);
+  font-family: sans-serif;
+  letter-spacing: 1;
+}
+
+h2 {
+  font-size: clamp(2em, 1vh, 1em);
+  text-transform: capitalize;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  width: 51%;
+  font-weight: bolder;
+  margin: 1em 0;
+  letter-spacing: 1;
+  line-height: 1.4;
+}
+
+.intro {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-basis: 35%;
+}
+/* END STYLES FOR services */
+
+/* START STYLES FOR PAIR IMAGE-PRODUCT */
+
+.image-product {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  gap: 5px;
+  flex-wrap: wrap;
+  flex-basis: 70%;
+  
+}
+
+.los-angeles {
+  flex-grow: 1;
+  width: 220px;
+  height: 290px;
+  border: 2px solid;
+  border-radius: 7px;
+  background: linear-gradient(to bottom, #ffffff18, #000000), url(/image/sect1.png) no-repeat top / cover;
+  color: var(--bs-light);
+  display: flex;
+  justify-content: end;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.image-product h4,
+.insight-flex h4 {
+  font-size: 1.1em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+  font-weight: 500;
+  text-transform: capitalize;
+  margin:  0 0 10px 0;
+  color: var(--bs-light);
+}
+
+.pair-image-product h4 {
+  font-size: 1em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+  font-weight: 500;
+  text-transform: capitalize;
+  margin:  0 0 7px 0;
+}
+
+.image-product p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.8em;
+  font-weight: 300;
+  text-transform: capitalize;
+  letter-spacing: 1;
+}
+
+.pair-image-product {
+  flex-grow: 1;
+  width: 220px;
+  height: 290px;
+  /* border: 2px solid; */
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.new-york {
+  width: 100%;
+  height: 50%;
+  border: 2px solid;
+  border-radius: 7px;
+  background: linear-gradient(150deg, #ffffff2c, #000000), url(/image/diff.\ towr\ \(1\).jpg) no-repeat top / cover;
+  color: var(--bs-light);
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.austin {
+  width: 100%;
+  height: 50%;
+  border: 2px solid;
+  border-radius: 7px;
+  background: linear-gradient(to bottom, #ffffff13, #000000), url(/image/diff.\ towr\ \(2\).jpg) no-repeat center / cover;
+  color: var(--bs-light);
+  display: flex;
+  justify-content: end;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.seattle {
+  flex-grow: 1;
+  width: 220px;
+  height: 290px;
+  border: 2px solid;
+  border-radius: 7px;
+  background: linear-gradient(to bottom, #ffffff13, #000000), url(/image/sect2.png) no-repeat top / cover;
+  color: var(--bs-light);
+  display: flex;
+  justify-content: end;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 20px;
+  cursor: pointer;
+}
+
+/* START STYLES FOR OUR SERVICES */
+
+
+.our-services-section {
+  background: var(--bs-dark);
+  padding: 20px 0;
+}
+
+.pparent-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3em 4em;
+  min-height: 60vh;
+}
+
+.pparent-container h2 {
+  color: var(--bs-light);
+}
+
+.service-flex-property {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 180px;
+  height: 320px;
+  border: 2px solid var(--bs-gray);
+  background: var(--bs-dark-gray);
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  flex-grow: 1;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.flex-box:hover {
+  transform: translateY(2%);
+}
+
+.flex-box h4 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+  text-transform: capitalize;
+  font-size: 1.5em;
+  margin: 0 0 15px 0;
+  color: var(--bs-light);
+}
+
+.flex-box p {
+  font-size: 1.05em;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  color: var(--bs-light);
+  width: 80%;
+}
+
+.services p {
+  font-size: 1.2em;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  width: 52%;
+  line-height: 1.2;
+  margin: 0 0 10px 0;
+  color: var(--bs-light);
+}
+/* END STYLES FOR SERVICES */
+
+/* START STYLES FOR PROGRESS */
+
+
+.progress {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  margin: 3em 4em;
+  gap: 10px;
+}
+
+.progress h2 {
+  width: 80%;
+}
+
+.progress-flex-box {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.flex-properties {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 180px;
+  height: 320px;
+  padding: 10px;
+  text-align: center;
+  flex-grow: 1;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 1px 2px 3px 2px rgba(87, 87, 87, 0.663);
+  transition: .2s;
+}
+
+.flex-properties:hover {
+  transform: translateX(4%);
+}
+
+.num {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bs-gold);
+  color: var(--bs-light);
+  font-size: 1.4em;
+  font-family: sans-serif;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 0 0 30px 0;
+  transition: .2s;
+}
+
+.num:hover {
+  background: none;
+  border: 2px dotted var(--bs-gold);
+  color: var(--bs-dark-gray);
+}
+
+.flex-properties p {
+  text-transform: capitalize;
+}
+
+/* END STYLES FOR PROGRESS */
+
+/* START STYLES FOR INSIGHTS */
+
+.insights-section {
+  background: var(--bs-dark);
+  min-height: 100vh;
+  padding: 3em 0;
+}
+
+.insights {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-basis: 30%;
+
+}
+
+.insights h2 {
+  color: var(--bs-light);
+}
+
+.insights > .btn a {
+  color: var(--bs-light);
+  transition: .2s;
+}
+
+.insights > .btn a:active {
+  color: var(--bs-dark);
+}
+
+.insights-flex-property {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex-basis: 90%;
+}
+
+.insight-flex {
+  width: 250px;
+  height: 290px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: end;
+  align-items: flex-start;
+  flex-direction: column;
+  border: 2px solid transparent;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 2px 3px 2px 1px rgba(192, 191, 191, 0.3);
+  transition: .2s;
+}
+
+.insight-flex:hover{
+  transform: translateY(3%);
+  box-shadow: none;
+  border-color: var(--bs-gold);
+}
+.insightflex1 {
+  background: linear-gradient(225deg, rgba(255, 255, 255, 0.11), rgba(0, 0, 0, 0.842)), url(/image/seamless\ journey\ \(2\).png) no-repeat center / cover;
+  flex-grow: 1;
+}
+
+.insightflex2 {
+  background: linear-gradient(225deg, rgba(255, 255, 255, 0.11), rgba(0, 0, 0, 0.842)), url(/image/seamless\ journey\ \(3\).png) no-repeat center / cover;
+  flex-grow: 1;
+}
+.insightflex3 {
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.11), rgba(0, 0, 0, 0.842)), url(/image/seamless\ journey\ \(4\).png) no-repeat center / cover;
+  flex-grow: 1;
+}
+
+.date {
+  font-size: 1em;
+  font-family: sans-serif;
+  text-transform: capitalize;
+}
+
+.insight-flex a {
+  font-size: 1em;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: var(--bs-light);
+  margin: 0 0 20px 0;
+  transition: .2s;
+}
+
+.insight-flex a:hover {
+  color: var(--bs-gold);
+  text-decoration: underline;
+}
+
+/* END STYLES FOR INSIGHTS */
+
+/* STYLES FOR LET'S BUILD STARTS FROM HERE */
+
+.lets-build {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--bs-light);
+  margin: 2em 4em;
+  gap: 4em;
+}
+
+.build {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.build h2 {
+  font-size: 2em;
+  width: 80%;
+}
+
+.bn {
+  padding: 12px 27px;
+  border: none;
+  background: var(--bs-gold);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.bn a {
+  color: var(--bs-dark);
+  font-family: sans-serif;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: .2s;
+}
+
+.bn a:active {
+  color: var(--bs-gray);
+}
+
+.contact,
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.email a,
+.tel a {
+  color: var(--bs-light);
+  font-size: 1.1em;
+  font-family: sans-serif;
+  letter-spacing: 1;
+}
+
+.address h4{
+  color: var(--bs-light);
+  font-size: 1.1em;
+  font-family: sans-serif;
+  letter-spacing: 1;
+}
+
+.follow-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.follow-us i {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bs-gold);
+  cursor: pointer;
+}
+
+.about-us {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.about-us > a {
+  font-size: clamp(3em, 1vh, 1em);
+  text-align: center;
+  letter-spacing: 4;
+}
+
+.about-us p {
+  font-size: 1.2em;
+  font-family: sans-serif;
+  font-weight: 500;
+  width: 70%;
+  line-height: 1.5;
+}
+/* STYLES FOR LET'S BUILD ENDS FROM HERE */
+
+/* FOOTER */
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 35px 30px;
+  background: var(--bs-gray);
+  color: var(--bs-light);
+  flex-wrap: wrap;
+
+}
+
+.copy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copy p {
+  text-transform: capitalize;
+  font-family: sans-serif;
+}
+
+.terms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.terms p {
+  text-transform: capitalize;
+  font-family: sans-serif;
+  font-weight: bold;
+  letter-spacing: 1;
+}
+
+
+
+
+
+
+
+@media (max-width: 983px) {
+  nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 82px;
+}
+
+.logo {
+  font-size: clamp(2.2em, 1.2vh, 1em);
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
+  color: var(--bs-light);
+}
+
+
+.nav-list {
+  display: none;
+}
+
+.count {
+  margin: 2em 6em;
+  border-radius: none;
+}
+}
+
+@media (max-width: 810px) {
+  .nav-btn {
+    display: none;
+  }
+
+  .nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  width: 50%;
+  height: 90vh;
+  background: var(--bs-dark-gray);
+  padding: 35px 0;
+  position: fixed;
+  top: 11%;
+  right: -50%;
+  border: 1px solid var(--bs-gold);
+  border-radius: 13px 0 0  13px;
+  transition: .2s ease;
+  z-index: 2;
+}
+
+#check:checked ~ .nav-list {
+  right: 0;
+}
+  .hamburger {
+    display: flex;
+  }
+
+  .hero-section span {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--bs-gold);
+  font-family: sans-serif;
+
+}
+
+h1 {
+  font-size: clamp(2.3em, 1vh, 1em);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-transform: capitalize;
+  width: 82%;
+  line-height: 1.5;
+  margin: 0.6em 0 0 0;
+  color: var(--bs-light);
+}
+
+h2 {
+  width: 100%;
+}
+.hero-section p {
+  font-family: sans-serif;
+  font-size: clamp(1.1em, 1vh, 1em);
+  text-transform: capitalize;
+  line-height: 1.5;
+  letter-spacing: 1;
+  width: 70%;
+  margin: 1em 0;
+  color: var(--bs-light);
+}
+
+.count {
+  margin: 2em 6em;
+}
+
+.cont {
+  border-right: none;
+}
+
+.contai {
+  font-size: 1.1em;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: var(--bs-gold);
+  font-family: sephora, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.parent-container {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  margin: 3em 4em;
+  min-height: 60vh;
+  flex-wrap: wrap;
+
+}
+
+.intro {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-basis: 100%;
+}
+
+
+.image-product {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  gap: 5px;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  margin: 2em 0;
+  
+}
+
+.pparent-container {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  margin: 3em 4em;
+  min-height: 60vh;
+  flex-wrap: wrap;
+}
+
+.flex-box {
+  margin: 10px 0 0 0 ;
+}
+
+.progress {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  margin: 3em 4em;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.insights {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-direction: column;
+  flex-basis: 100%;
+
+}
+
+.insights-flex-property {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  margin: 12px 0 0 0;
+}
+
+.lets-build {
+  flex-wrap: wrap;
+}
+}
+
+@media (max-width: 620px) {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 27px 30px;
+
+  }
+
+  .hero-section {
+  padding: 2em 3em;
+}
+
+.hero-section span {
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--bs-gold);
+  font-family: sans-serif;
+
+}
+
+h1 {
+  font-size: clamp(2em, 1vh, 1em);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-transform: capitalize;
+  width: 100%;
+  line-height: 1;
+  margin: 0.6em 0 0 0;
+  color: var(--bs-light);
+}
+
+.hero-section p {
+  font-family: sans-serif;
+  font-size: clamp(1em, 1vh, 1em);
+  text-transform: capitalize;
+  line-height: 1.5;
+  letter-spacing: 1;
+  width: 100%;
+  margin: 1em 0;
+  color: var(--bs-light);
+}
+
+span,
+.container > span {
+  font-size: 0.7em;
+}
+
+.progress h2 {
+  width: 100%;
+}
+
+.services p {
+  font-size: 1em;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  width: 70%;
+  line-height: 1.5;
+  margin: 0 0 10px 0;
+  color: var(--bs-light);
+}
+
+.flex-box p {
+  font-size: 1em;
+  font-family: sans-serif;
+  text-transform: capitalize;
+  color: var(--bs-light);
+  width: 100%;
+}
+
+.email a,
+.tel a {
+  color: var(--bs-light);
+  font-size: 0.9em;
+  font-family: sans-serif;
+  letter-spacing: 1;
+}
+
+.address h4{
+  color: var(--bs-light);
+  font-size: 0.9em;
+  font-family: sans-serif;
+  letter-spacing: 1;
+}
+
+.about-us > a {
+  font-size: clamp(2.3em, 1vh, 1em);
+  text-align: center;
+  letter-spacing: 4;
+}
+
+.build h2 {
+  font-size: 1.7em;
+  width: 100%;
+}
+
+.about-us p {
+  font-size: 1em;
+  font-family: sans-serif;
+  font-weight: light;
+  width: 100%;
+  line-height: 1.5;
+}
+}
